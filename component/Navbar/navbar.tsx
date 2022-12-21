@@ -2,7 +2,7 @@ import React from "react";
 import { View, TouchableOpacity } from "react-native";
 import tw from "twrnc";
 import { MaterialIcons } from "@expo/vector-icons";
-import { FontAwesome5 } from "@expo/vector-icons";
+import { FontAwesome } from "@expo/vector-icons";
 import { Entypo } from "@expo/vector-icons";
 import { useNavigation } from "@react-navigation/native";
 
@@ -17,13 +17,11 @@ export default function Navbar({}) {
         <TouchableOpacity onPress={() => navigation.navigate("Home")}>
           <Entypo name="home" size={24} color="black" />
         </TouchableOpacity>
-
         <TouchableOpacity onPress={() => navigation.navigate("Market")}>
-          <MaterialIcons name="event-available" size={24} color="black" />
+          <MaterialIcons name="store" size={24} color="black" />
         </TouchableOpacity>
-
-        <FontAwesome5 name="warehouse" size={21} color="black" />
-        <Entypo name="drop" size={24} color="black" />
+        <FontAwesome name="shopping-bag" size={20} color="black" />
+        <MaterialIcons name="delivery-dining" size={24} color="black" />
       </View>
     </>
   );

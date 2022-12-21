@@ -5,6 +5,7 @@ import Navbar from "../Navbar/navbar";
 import { SafeAreaView } from "react-native-safe-area-context";
 import { useFonts } from "expo-font";
 import Header from "../Header/header";
+import { EvilIcons } from "@expo/vector-icons";
 
 export default function Home() {
   const [fontsLoaded] = useFonts({
@@ -16,10 +17,7 @@ export default function Home() {
   return (
     <>
       <SafeAreaView>
-        <ScrollView
-          showsVerticalScrollIndicator={false}
-          style={tw`bg-[#f1f2ed]`}
-        >
+        <ScrollView showsVerticalScrollIndicator={false}>
           <Header />
           <View style={tw`flex-2 items-center`}>
             <Text
@@ -48,7 +46,7 @@ export default function Home() {
               >
                 Explore marketplace
               </Text>
-              <Image source={require("../../assets/images/arrow.png")} />
+              <EvilIcons name="arrow-right" size={40} color="black" />
             </View>
 
             <View
@@ -59,7 +57,7 @@ export default function Home() {
               >
                 See auctions
               </Text>
-              <Image source={require("../../assets/images/arrow.png")} />
+              <EvilIcons name="arrow-right" size={40} color="black" />
             </View>
           </View>
         </ScrollView>

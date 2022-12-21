@@ -7,17 +7,20 @@ export default function Main() {
   const Stack = createNativeStackNavigator();
 
   return (
-        <Stack.Navigator
-          screenOptions={{
-            headerTitleStyle: {
-              fontWeight: "bold",
-            },
-            headerShadowVisible: false,
-            headerShown: false,
-          }}
-        >
-          <Stack.Screen name="Home" component={Home} />
-          <Stack.Screen name="Market" component={Market} />
-        </Stack.Navigator>
+    <Stack.Navigator
+      screenOptions={{
+        headerTitleStyle: {
+          fontWeight: "bold",
+        },
+        headerShadowVisible: false,
+        headerShown: false,
+        contentStyle: {
+          backgroundColor: "#f112",
+        },
+      }}
+    >
+      <Stack.Screen name="Home" component={Home} />
+      <Stack.Screen name="Market" component={Market} />
+    </Stack.Navigator>
   );
 }
