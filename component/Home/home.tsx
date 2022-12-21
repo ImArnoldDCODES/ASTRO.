@@ -1,13 +1,18 @@
 import React from "react";
 import { View, Text, Image, ScrollView } from "react-native";
 import tw from "twrnc";
-import { AntDesign } from "@expo/vector-icons";
-import { EvilIcons } from "@expo/vector-icons";
 import Navbar from "../Navbar/navbar";
 import { SafeAreaView } from "react-native-safe-area-context";
 import { useFonts } from "expo-font";
+import Header from "../Header/header";
 
 export default function Home() {
+  const [fontsLoaded] = useFonts({
+    stix: require("../../assets/fonts/stix/static/STIXTwoText-Medium.ttf"),
+  });
+
+  if (!fontsLoaded) return null;
+
   return (
     <>
       <SafeAreaView>
@@ -15,21 +20,7 @@ export default function Home() {
           showsVerticalScrollIndicator={false}
           style={tw`bg-[#f1f2ed]`}
         >
-          <View
-            style={tw` flex-0.15 relative w-[13rem] flex flex-row justify-center items-center ml-[10rem] mb-5`}
-          >
-            <Text
-              style={tw`text-[24px] font-normal leading-normal text-[#292929]`}
-            >
-              ARTSY.
-            </Text>
-            <View
-              style={tw`flex flex-row items-center ml-auto w-20 h-10 justify-between`}
-            >
-              <EvilIcons name="search" size={32} color="black" />
-              <AntDesign name="shoppingcart" size={32} color="black" />
-            </View>
-          </View>
+          <Header />
           <View style={tw`flex-2 items-center`}>
             <Text
               style={tw`font-normal text-[#333333] text-[32px] text-center leading-normal`}
