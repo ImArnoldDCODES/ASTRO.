@@ -62,9 +62,9 @@ export default function Market() {
             </View>
           </View>
           <View style={tw`mt-5 items-center`}>
-            {data.map((data) => {
+            {data.map((data, index) => {
               return(
-              <View>
+              <View key={index}>
                 <Image source={(data.image)}/>
                 <View style={tw`my-4 flex-row justify-between`}>
                 <Text style={tw`text-[15px] font-normal`}>{data.title}</Text>
