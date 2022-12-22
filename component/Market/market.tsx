@@ -1,11 +1,12 @@
 import React, { useState } from "react";
 import { View, Text, Image, ScrollView } from "react-native";
 import Navbar from "../Navbar/navbar";
-import tw from "twrnc";
+import tw from '../../tailwind/index';
 import { MaterialIcons } from "@expo/vector-icons";
 import { SafeAreaView } from "react-native-safe-area-context";
 import Header from "../Header/header";
 import { EvilIcons } from "@expo/vector-icons";
+import { useFonts } from "expo-font";
 
 const data = [
   {
@@ -36,6 +37,11 @@ const data = [
 ];
 
 export default function Market() {
+  const [fontsLoaded] = useFonts({
+    satoshi: require("../../assets/fonts/Satoshi-Medium.otf")
+  });
+
+  if (!fontsLoaded) return null;
   return (
     <>
       <SafeAreaView>
@@ -43,7 +49,7 @@ export default function Market() {
           <Header />
           <View style={tw`flex-row justify-between px-10 items-center`}>
             <View style={tw`flex-row items-center`}>
-              <Text style={tw`text-[18px]`}>Filters</Text>
+              <Text style={tw`text-[18px] font-satoshi`}>Filters</Text>
               <MaterialIcons
                 name="keyboard-arrow-down"
                 size={35}
@@ -52,7 +58,7 @@ export default function Market() {
               />
             </View>
             <View style={tw`flex-row items-center`}>
-              <Text style={tw`text-[18px]`}>Sort by</Text>
+              <Text style={tw`text-[18px] font-satoshi`}>Sort by</Text>
               <MaterialIcons
                 name="keyboard-arrow-down"
                 size={35}
@@ -67,16 +73,16 @@ export default function Market() {
               <View key={index}>
                 <Image source={(data.image)}/>
                 <View style={tw`my-4 flex-row justify-between`}>
-                <Text style={tw`text-[15px] font-normal`}>{data.title}</Text>
-                <Text style={tw`text-[15px] font-normal`}>{data.price}</Text>
+                <Text style={tw`text-[15px] font-normal font-satoshi`}>{data.title}</Text>
+                <Text style={tw`text-[15px] font-normal font-satoshi`}>{data.price}</Text>
                 </View>
               </View>
               )
             })}
           </View>
           <View style={tw`mt-5 mb-30 flex-row items-center mx-4 ml-auto`}>
-            <Text style={tw`text-[24px] mr-2`}>Load More</Text>
-            <EvilIcons name="arrow-right" size={80} color="black" />
+            <Text style={tw`text-[24px] mr-2 font-satoshi`}>Load More</Text>
+            <EvilIcons name="arrow-right" size={70} color="black" />
           </View>
         </ScrollView>
       </SafeAreaView>

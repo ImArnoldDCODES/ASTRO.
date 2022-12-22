@@ -16,7 +16,6 @@ export default function App() {
           screenOptions={{
             headerShown: false,
             headerShadowVisible: false,
-            headerBackTitle: 'Back',
           }}>
           <Stack.Screen name='Main' component={Main} />
         </Stack.Navigator>

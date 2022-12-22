@@ -1,6 +1,6 @@
 import React from "react";
 import { View, Text, Image, ScrollView } from "react-native";
-import tw from "twrnc";
+import tw from '../../tailwind/index';
 import Navbar from "../Navbar/navbar";
 import { SafeAreaView } from "react-native-safe-area-context";
 import { useFonts } from "expo-font";
@@ -8,8 +8,10 @@ import Header from "../Header/header";
 import { EvilIcons } from "@expo/vector-icons";
 
 export default function Home() {
+
   const [fontsLoaded] = useFonts({
-    stix: require("../../assets/fonts/stix/static/STIXTwoText-Medium.ttf"),
+    clash: require("../../assets/fonts/FontsFree-Net-ClashDisplay-Variable.ttf"),
+    satoshi: require("../../assets/fonts/Satoshi-Medium.otf")
   });
 
   if (!fontsLoaded) return null;
@@ -21,12 +23,12 @@ export default function Home() {
           <Header />
           <View style={tw`flex-2 items-center`}>
             <Text
-              style={tw`font-normal text-[#333333] text-[32px] text-center leading-normal`}
+              style={tw`font-normal text-[#333333] text-[32px] text-center leading-normal font-clash`}
             >
               Photography is poetry{"\n"} and beautiful untold stories
             </Text>
             <Text
-              style={tw`mt-7 font-normal text-[500] text-[16px] text-center px-6 leading-normal`}
+              style={tw`mt-7 font-normal text-[500] text-[16px] text-center px-6 leading-normal font-satoshi`}
             >
               Flip through more than 10,000 vintage shots, old photograghs,
               historic images and captures seamlessly in one place. Register to
@@ -42,7 +44,7 @@ export default function Home() {
               style={tw`flex flex-row  border-t border-b border-[#000] items-center justify-between px-5 py-2`}
             >
               <Text
-                style={tw`font-normal text-[500] text-[24px] leading-normal text-[#292929]`}
+                style={tw`font-normal text-[500] text-[24px] leading-normal text-[#292929] font-satoshi`}
               >
                 Explore marketplace
               </Text>
@@ -53,7 +55,7 @@ export default function Home() {
               style={tw`flex flex-row   border-b border-[#000] items-center justify-between px-5 py-2`}
             >
               <Text
-                style={tw`font-normal text-[500] text-[24px] leading-normal text-[#292929]`}
+                style={tw`font-normal text-[500] text-[24px] leading-normal text-[#292929] font-satoshi`}
               >
                 See auctions
               </Text>

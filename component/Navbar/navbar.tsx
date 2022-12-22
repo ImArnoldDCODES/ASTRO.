@@ -11,7 +11,7 @@ export default function Navbar({}) {
   return (
     <>
       <View
-        style={tw`rounded-t-2xl h-[4rem] bg-[#f5efd7] flex flex-row items-center justify-evenly mt-auto
+        style={tw`rounded-t-2xl h-[4rem] bg-[#f001] flex flex-row items-center justify-evenly mt-auto
         `}
       >
         <TouchableOpacity onPress={() => navigation.navigate("Home")}>
