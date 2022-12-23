@@ -8,7 +8,7 @@ import {
   TouchableOpacity,
 } from "react-native";
 import { SafeAreaView } from "react-native-safe-area-context";
-import React from "react";
+import React, { useEffect, useState } from "react";
 import Header from "../Header/header";
 import Navbar from "../Navbar/navbar";
 import { AntDesign } from "@expo/vector-icons";
@@ -35,6 +35,22 @@ export default function Cart() {
   ];
 
   const navigation = useNavigation();
+
+  const [Num, setNum] = useState(1)
+  const [price, setPrice] = useState (35.5)
+  const [Grandtotal, setGrandTotal] = useState(price)
+
+  const handleadd = () => {
+    setNum(Num + 1)
+    setPrice(Num * price)
+  }
+  const handleminus = () => {
+    setNum(Num - 1)
+    setPrice(price - 35.5)
+  }
+  useEffect(() => {
+    setGrandTotal(price * 3 + 2.50)
+  }, [handleadd, handleminus])
 
   return (
     <>
@@ -71,19 +87,21 @@ export default function Cart() {
                           size={24}
                           color="black"
                           style={tw`border-r border-[#000] pr-1`}
+                          onPress={handleminus}
                         />
-                        <Text>1</Text>
+                        <Text>{Num}</Text>
                         <AntDesign
                           name="plus"
                           size={24}
                           color="black"
                           style={tw`border-l border-[#000] pl-1`}
+                          onPress={handleadd}
                         />
                       </View>
                     </View>
                     <View style={tw`ml-auto items-center`}>
                       <Feather name="x-circle" size={35} color="black" />
-                      <Text style={tw`mt-12`}>$36.50</Text>
+                      <Text style={tw`mt-12`}>${price}</Text>
                     </View>
                   </View>
                 );
@@ -106,15 +124,15 @@ export default function Cart() {
                 <Text style={tw`font-satoshi text-[20px] text-[#888888]`}>
                   Total :{" "}
                 </Text>
-                <Text style={tw`font-satoshi text-[16px]`}>$109.5</Text>
+                <Text style={tw`font-satoshi text-[16px]`}>$109</Text>
               </View>
               <View
                 style={tw`flex-row justify-between items-center mt-3 border-t border-[#888]`}
               >
                 <Text style={tw`font-satoshi text-[20px] text-[#888888]`}>
-                  Grand Total :{" "}
+                  Grand Total :
                 </Text>
-                <Text style={tw`font-satoshi text-[16px]`}>$112</Text>
+                <Text style={tw`font-satoshi text-[16px]`}>${Grandtotal}</Text>
               </View>
             </View>
             <View style={tw`mt-16 mb-10 items-center justify-center`}>

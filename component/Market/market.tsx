@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { View, Text, Image, ScrollView } from "react-native";
+import { View, Text, Image, ScrollView, TouchableHighlight, Alert } from "react-native";
 import Navbar from "../Navbar/navbar";
 import tw from '../../tailwind/index';
 import { MaterialIcons } from "@expo/vector-icons";
@@ -42,6 +42,11 @@ export default function Market() {
   });
 
   if (!fontsLoaded) return null;
+
+  const onLongPress = () => {
+    Alert.alert('Add to Cart?')
+  }
+
   return (
     <>
       <SafeAreaView>
@@ -71,7 +76,9 @@ export default function Market() {
             {data.map((data, index) => {
               return(
               <View key={index}>
+                <TouchableHighlight onLongPress={onLongPress}>
                 <Image source={(data.image)}/>
+                </TouchableHighlight>
                 <View style={tw`my-4 flex-row justify-between`}>
                 <Text style={tw`text-[15px] font-normal font-satoshi`}>{data.title}</Text>
                 <Text style={tw`text-[15px] font-normal font-satoshi`}>{data.price}</Text>
