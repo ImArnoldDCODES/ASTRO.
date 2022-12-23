@@ -1,7 +1,8 @@
 import React from "react";
 import Home from "./component/Home/home";
-import { createNativeStackNavigator } from "@react-navigation/native-stack";
 import Market from "./component/Market/market";
+import Cart from "./component/Cart/cart";
+import { createNativeStackNavigator } from "@react-navigation/native-stack";
 import { NavigationContainer } from "@react-navigation/native";
 import { StatusBar } from "expo-status-bar";
 
@@ -25,6 +26,7 @@ export default function Main() {
       >
         <Stack.Screen name="Home" component={Home} />
         <Stack.Screen name="Market" component={Market} />
+        <Stack.Screen name="Cart" component={Cart}/>
       </Stack.Navigator>
     </>
   );

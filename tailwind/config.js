@@ -38,6 +38,9 @@ module.exports = {
           "font-satoshi": {
             fontFamily: "satoshi",
           },
+          "font-cardo": {
+            fontFamily: "cardo",
+          },
         });
       }),
     ],

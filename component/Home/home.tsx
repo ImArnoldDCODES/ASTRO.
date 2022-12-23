@@ -11,7 +11,8 @@ export default function Home() {
 
   const [fontsLoaded] = useFonts({
     clash: require("../../assets/fonts/FontsFree-Net-ClashDisplay-Variable.ttf"),
-    satoshi: require("../../assets/fonts/Satoshi-Medium.otf")
+    satoshi: require("../../assets/fonts/Satoshi-Medium.otf"),
+    cardo: require("../../assets/fonts/Cardo-Regular.ttf")
   });
 
   if (!fontsLoaded) return null;

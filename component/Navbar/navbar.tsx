@@ -8,6 +8,7 @@ import { useNavigation } from "@react-navigation/native";
 
 export default function Navbar({}) {
   const navigation = useNavigation();
+
   return (
     <>
       <View
@@ -15,13 +16,15 @@ export default function Navbar({}) {
         `}
       >
         <TouchableOpacity onPress={() => navigation.navigate("Home")}>
-          <Entypo name="home" size={24} color="black" />
+          <Entypo name="home" size={24} color="gray" />
         </TouchableOpacity>
         <TouchableOpacity onPress={() => navigation.navigate("Market")}>
-          <MaterialIcons name="store" size={24} color="black" />
+          <MaterialIcons name="store" size={24} color="gray" />
         </TouchableOpacity>
-        <FontAwesome name="shopping-bag" size={20} color="black" />
-        <MaterialIcons name="delivery-dining" size={24} color="black" />
+        <TouchableOpacity onPress={() => navigation.navigate("Cart")}>
+        <FontAwesome name="shopping-bag" size={20} color="gray" />
+        </TouchableOpacity>
+        <MaterialIcons name="delivery-dining" size={24} color="gray" />
       </View>
     </>
   );
